@@ -15,6 +15,7 @@
 		DFE7FDDC1BCDCD5900620947 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFE7FDDB1BCDCD5900620947 /* Assets.xcassets */; };
 		DFE7FDDF1BCDCD5900620947 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFE7FDDD1BCDCD5900620947 /* LaunchScreen.storyboard */; };
 		DFE7FDE71BCDD57000620947 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFE7FDE61BCDD57000620947 /* AVFoundation.framework */; };
+		DFE7FDEA1BCDF73800620947 /* WisdomGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE7FDE91BCDF73800620947 /* WisdomGrabber.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		DFE7FDDE1BCDCD5900620947 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DFE7FDE01BCDCD5900620947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DFE7FDE61BCDD57000620947 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		DFE7FDE81BCDF73800620947 /* WisdomGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WisdomGrabber.h; sourceTree = "<group>"; };
+		DFE7FDE91BCDF73800620947 /* WisdomGrabber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WisdomGrabber.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,8 @@
 				DFE7FDD31BCDCD5900620947 /* AppDelegate.m */,
 				DFE7FDD51BCDCD5900620947 /* ViewController.h */,
 				DFE7FDD61BCDCD5900620947 /* ViewController.m */,
+				DFE7FDE81BCDF73800620947 /* WisdomGrabber.h */,
+				DFE7FDE91BCDF73800620947 /* WisdomGrabber.m */,
 				DFE7FDD81BCDCD5900620947 /* Main.storyboard */,
 				DFE7FDDB1BCDCD5900620947 /* Assets.xcassets */,
 				DFE7FDDD1BCDCD5900620947 /* LaunchScreen.storyboard */,
@@ -215,6 +220,7 @@
 			files = (
 				DFE7FDD71BCDCD5900620947 /* ViewController.m in Sources */,
 				DFE7FDD41BCDCD5900620947 /* AppDelegate.m in Sources */,
+				DFE7FDEA1BCDF73800620947 /* WisdomGrabber.m in Sources */,
 				DFE7FDD11BCDCD5900620947 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
