@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,40 +17,74 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rutabaga" translatesAutoresizingMaskIntoConstraints="NO" id="SvB-S8-pQT">
+                                <rect key="frame" x="4" y="0.0" width="592" height="600"/>
+                                <animations/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Listen to the Rutabaga." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfS-87-VFd">
+                                <rect key="frame" x="211" y="323" width="178" height="21"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EfL-VF-p3w">
                                 <rect key="frame" x="175" y="285" width="250" height="30"/>
                                 <animations/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="LP4-ln-wVV"/>
                                     <constraint firstAttribute="width" constant="250" id="WlT-9k-sd0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="WlT-9k-sd0"/>
+                                    </mask>
+                                </variation>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make the Rutabaga speak." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIf-Xq-PgI">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Make the Rutabaga speak." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIf-Xq-PgI">
                                 <rect key="frame" x="199" y="256" width="203" height="21"/>
                                 <animations/>
+                                <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Listen to the Rutabaga." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfS-87-VFd">
-                                <rect key="frame" x="211" y="323" width="178" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="-1" height="-1"/>
                             </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="EfL-VF-p3w" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7Em-Jw-RuO"/>
+                            <constraint firstItem="EfL-VF-p3w" firstAttribute="top" secondItem="zIf-Xq-PgI" secondAttribute="bottom" constant="8" id="G6G-Df-jfp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SvB-S8-pQT" secondAttribute="trailing" constant="-16" id="MRg-zQ-ucU"/>
                             <constraint firstItem="EfL-VF-p3w" firstAttribute="top" secondItem="zIf-Xq-PgI" secondAttribute="bottom" constant="8" id="MlA-RY-buT"/>
                             <constraint firstItem="EfL-VF-p3w" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QJR-la-46X"/>
                             <constraint firstItem="tfS-87-VFd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RX6-G3-axq"/>
                             <constraint firstItem="EfL-VF-p3w" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="TTw-Ac-3ht"/>
+                            <constraint firstItem="SvB-S8-pQT" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="fu8-Ux-THM"/>
                             <constraint firstItem="tfS-87-VFd" firstAttribute="top" secondItem="EfL-VF-p3w" secondAttribute="bottom" constant="8" id="kM2-IX-kAO"/>
+                            <constraint firstItem="SvB-S8-pQT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="mu8-Ou-wV3"/>
+                            <constraint firstItem="tfS-87-VFd" firstAttribute="top" secondItem="EfL-VF-p3w" secondAttribute="bottom" constant="8" id="oDv-0R-vJ6"/>
+                            <constraint firstItem="tfS-87-VFd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oaq-P9-JS3"/>
+                            <constraint firstItem="zIf-Xq-PgI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pVT-wV-RHC"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="SvB-S8-pQT" secondAttribute="bottom" id="sIw-Ar-FNi"/>
                             <constraint firstItem="zIf-Xq-PgI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tkZ-9k-OZI"/>
+                            <constraint firstItem="EfL-VF-p3w" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="vHm-og-Wh4"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="tkZ-9k-OZI"/>
+                                <exclude reference="RX6-G3-axq"/>
+                                <exclude reference="kM2-IX-kAO"/>
+                                <exclude reference="MlA-RY-buT"/>
+                                <exclude reference="QJR-la-46X"/>
+                                <exclude reference="TTw-Ac-3ht"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="textField" destination="EfL-VF-p3w" id="F2T-IW-vTY"/>
@@ -57,6 +92,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="510" y="272"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="rutabaga" width="750" height="1334"/>
+    </resources>
 </document>

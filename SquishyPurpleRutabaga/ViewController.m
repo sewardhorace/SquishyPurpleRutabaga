@@ -31,7 +31,7 @@ UITextFieldDelegate
 - (NSString*)prepareStringForURLQuery:(NSString*)string{
     NSString *queryString = [string stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     return queryString;
-}
+}               
 
 -(void)speakWithText:(NSString *)text{
     NSLog(@"fetching audio data");
@@ -49,6 +49,8 @@ UITextFieldDelegate
     [self.player prepareToPlay];
     [self.player play];
     NSLog(@"audio should begin playing");
+    
+    self.textField.text = @"";
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
