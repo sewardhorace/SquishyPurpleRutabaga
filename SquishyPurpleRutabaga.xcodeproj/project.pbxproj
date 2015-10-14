@@ -16,6 +16,7 @@
 		DFE7FDDF1BCDCD5900620947 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFE7FDDD1BCDCD5900620947 /* LaunchScreen.storyboard */; };
 		DFE7FDE71BCDD57000620947 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFE7FDE61BCDD57000620947 /* AVFoundation.framework */; };
 		DFE7FDEA1BCDF73800620947 /* WisdomGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE7FDE91BCDF73800620947 /* WisdomGrabber.m */; settings = {ASSET_TAGS = (); }; };
+		DFE7FDEC1BCE013D00620947 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFE7FDEB1BCE013D00620947 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		DFE7FDE61BCDD57000620947 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		DFE7FDE81BCDF73800620947 /* WisdomGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WisdomGrabber.h; sourceTree = "<group>"; };
 		DFE7FDE91BCDF73800620947 /* WisdomGrabber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WisdomGrabber.m; sourceTree = "<group>"; };
+		DFE7FDEB1BCE013D00620947 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFE7FDEC1BCE013D00620947 /* Foundation.framework in Frameworks */,
 				DFE7FDE71BCDD57000620947 /* AVFoundation.framework in Frameworks */,
 				DE1113592AF7E02E25B6DFA0 /* libPods.a in Frameworks */,
 			);
@@ -62,6 +65,7 @@
 		5C76729AE3BDE4CFAF1C4A6E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DFE7FDEB1BCE013D00620947 /* Foundation.framework */,
 				DFE7FDE61BCDD57000620947 /* AVFoundation.framework */,
 				D46A36B07BAE4479C73B8468 /* libPods.a */,
 			);

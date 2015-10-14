@@ -50,9 +50,11 @@ UITextFieldDelegate
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
-    NSLog(@"%@", textField.text);
+    
     WisdomGrabber *grabber = [[WisdomGrabber alloc] init];
-    NSString *wisdom = [grabber getLongResponseFromText:textField.text];
+    
+    NSArray *wisdom = [grabber getQuotesFromText:textField.text];
+    
     
     [textField resignFirstResponder];
     return TRUE;
