@@ -34,27 +34,30 @@ UITextFieldDelegate
 }
 
 -(void)speakWithText:(NSString *)text{
-    NSString *urlRootString = @"https://api.voicerss.org/?key=177845dca5d24d6bbc34217efa9ba160&hl=en-au&f=44khz_16bit_mono&src=";
+    NSLog(@"fetching audio data");
+    NSString *urlRootString = @"https://api.voicerss.org/?key=177845dca5d24d6bbc34217efa9ba160&hl=en-us&f=44khz_16bit_mono&src=";
     
     NSString *queryString = [self prepareStringForURLQuery:text];
     NSString *urlString = [NSString stringWithFormat:@"%@%@", urlRootString, queryString];
     
     NSURL *url = [NSURL URLWithString:urlString];
-    
     NSError *error1;
     NSData *audioData = [[NSData alloc] initWithContentsOfURL:url options:NSDataReadingMappedIfSafe error:&error1];
     NSError *error2;
     self.player = [[AVAudioPlayer alloc] initWithData:audioData error:&error2];
+    NSLog(@"preparing to play audio");
     [self.player prepareToPlay];
     [self.player play];
+    NSLog(@"audio should begin playing");
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     
     WisdomGrabber *grabber = [[WisdomGrabber alloc] init];
     
-    NSArray *wisdom = [grabber getQuotesFromText:textField.text];
+    NSString *wisdom = [grabber fetchWisdom:textField.text];
     
+    [self speakWithText:wisdom];
     
     [textField resignFirstResponder];
     return TRUE;

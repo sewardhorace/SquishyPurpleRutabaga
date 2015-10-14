@@ -10,6 +10,6 @@
 
 @interface WisdomGrabber : NSObject
 
--(NSArray *)getQuotesFromText:(NSString *)text;
+-(NSString *)fetchWisdom:(NSString *)text;
 
 @end

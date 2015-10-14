@@ -7,11 +7,12 @@
 //
 
 #import "WisdomGrabber.h"
-#import <AFNetworking/AFNetworking.h>
 #import "TFHpple.h"
 #import <Foundation/Foundation.h>
 
 @interface WisdomGrabber ()
+
+@property (nonatomic) NSString *queryBody;
 
 @end
 
@@ -43,6 +44,24 @@
     }
 }
 
+-(NSString *)getSubjectFromSubjectMatterArray:(NSMutableArray *)subjectMatterArray{
+    
+    NSString *queryBody = [[NSString alloc] init];
+    if ([subjectMatterArray count] > 1) {
+        
+        NSInteger loopCount = [subjectMatterArray count]-2;
+        for (int i = 0; i < loopCount; i++){
+            NSUInteger randomIndex = arc4random() % [subjectMatterArray count];
+            [subjectMatterArray removeObjectAtIndex:randomIndex];
+        }
+        queryBody = [subjectMatterArray componentsJoinedByString:@" "];
+    } else {
+        queryBody = [subjectMatterArray objectAtIndex:0];
+    }
+    
+    return queryBody;
+}
+
 -(NSString *)createQueryStringFromSubjectMatter:(NSString *)subjectMatter{
     NSArray *queryPrefixes = @[@"I think ",
                                @"I feel ",
@@ -65,30 +84,8 @@
     return queryString;
 }
 
--(NSString *)getSubjectFromSubjectMatterArray:(NSMutableArray *)subjectMatterArray{
-    
-    NSString *queryBody = [[NSString alloc] init];
-    if ([subjectMatterArray count] > 1) {
-        
-        int loopCount = [subjectMatterArray count]-2;
-        for (int i = 0; i < loopCount; i++){
-            NSUInteger randomIndex = arc4random() % [subjectMatterArray count];
-            [subjectMatterArray removeObjectAtIndex:randomIndex];
-        }
-        queryBody = [subjectMatterArray componentsJoinedByString:@" "];
-    } else {
-        queryBody = [subjectMatterArray objectAtIndex:0];
-    }
-    
-    return queryBody;
-}
 
--(NSArray *)getQuotesFromText:(NSString *)text{
-    
-    NSMutableArray *subjectMatterArray = [self getSubjectMatterFromText:text];
-    
-    NSString *queryBody = [self getSubjectFromSubjectMatterArray:subjectMatterArray];
-    NSString *queryString = [self createQueryStringFromSubjectMatter:queryBody];
+-(NSMutableArray *)fetchQuotesFromQuery:(NSString *)queryString{
     
     NSString *urlRootString = @"http://www.brainyquote.com/search_results.json?q=";
     NSString *urlString = [NSString stringWithFormat:@"%@%@", urlRootString, queryString];
@@ -102,8 +99,52 @@
     for (TFHppleElement *element in nodes) {
         [quoteArray addObject:[[element firstChild]content]];
     }
-    
     return quoteArray;
+}
+
+
+-(NSArray *)getRandomQuoteStringsFromQuoteArray:(NSArray *)quotes{
+//    shuffle the array first?
+    NSString *giantString = [quotes componentsJoinedByString:@" "];
+    NSArray *sentences = [giantString componentsSeparatedByString:@"."];
+    
+    return sentences;
+}
+-(NSString *)findRelevantQuoteFromArray:(NSArray *)quotes{
+    NSArray *sentences = [self getRandomQuoteStringsFromQuoteArray:quotes];
+    
+    NSArray *subjectParts = [self.queryBody componentsSeparatedByString:@" "];
+    
+    for (NSString *subject in subjectParts){
+        for (NSString *sentence in sentences){
+            if ([sentence containsString:subject]){
+                return [sentence stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];;
+            }
+        }
+    }
+    NSUInteger randomIndex = arc4random() % [sentences count];
+    return [[sentences objectAtIndex:randomIndex] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+}
+
+
+-(NSString *)fetchWisdom:(NSString *)text{
+    
+    NSLog(@"recieved text");
+    NSMutableArray *subjectMatterArray = [self getSubjectMatterFromText:text];
+    
+    self.queryBody = [[NSString alloc] init];
+    
+    self.queryBody = [self getSubjectFromSubjectMatterArray:subjectMatterArray];
+    NSString *queryString = [self createQueryStringFromSubjectMatter:self.queryBody];
+    NSLog(@"constructed query string :%@", queryString);
+    
+    NSMutableArray *quoteArray = [self fetchQuotesFromQuery:queryString];
+    NSLog(@"fetched quotes");
+    
+    NSString *wisdom = [self findRelevantQuoteFromArray:quoteArray];
+    NSLog(@"got wisdom: %@", wisdom);
+    
+    return wisdom;
 }
 
 
